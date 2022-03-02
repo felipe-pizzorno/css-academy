@@ -10,6 +10,8 @@ body {
 
 strong { font-weight: bold; }
 
+.overflow { overflow: hidden; }
+
 .clearfix::after { content: ""; display: block; clear: both; }
 
 .content { margin: auto; max-width: 1160px; width: 100%; }
@@ -82,6 +84,15 @@ a:hover .underline::after { width: 100%; }
 /* Generic card */
 .card { border-radius: 5px; border: solid 2px #005e41; padding: 10px; background-color: #defcf3; box-shadow: 0 0 2px; }
 
+/* Modal */
+.modal { height: 100%; width: 100%; background: rgba(0,0,0,0); position: fixed; top: 0; z-index: 9999; visibility: hidden; transition: all .7s; }
+.modal.show-modal { visibility: visible; background: rgba(0,0,0,0.4); }
+.modal.show-modal .modal-content { width: 90%; max-width: 600px; position: fixed; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%) rotate(0); padding: 30px; height: 300px; opacity: 1; }
+.modal .modal-content { width: 90%; max-width: 600px; position: fixed; top: 50%; left: 50%; transform: translateX(-100vw) translateY(-50%); padding: 30px; height: 300px; transition: all .6s; transition-delay: 0.1s; opacity: 0; }
+.modal .modal-content .text { overflow: auto; height: 100%; }
+.modal .modal-content .text p { text-align: center; }
+.modal .modal-content .close-modal { position: absolute; right: 0; top: 0; height: 30px; width: 30px; display: inline-block; line-height: 30px; text-align: center; cursor: pointer; }
+
 /* Mobile stles */
 @media screen and (max-width: 1280px) {
   .hero a figure { border-radius: 0; }
@@ -117,3 +128,86 @@ a:hover .underline::after { width: 100%; }
   .other-news .news-with-descriptions ul li figure { top: 50px; }
   .other-news .news-with-descriptions ul li figure img { width: 70px; height: 70px; }
 }
+
+/* Plane */
+@keyframes plane-movement {
+  0% {
+    transform: rotate(0) translateX(0) rotate(0);
+  }
+
+  15% {
+    transform: rotate(-5deg) translateX(400px) rotate(5deg);
+  }
+
+  65% {
+    transform: rotate(-45deg) translateX(1600px) rotate(45deg) ;
+  }
+  100% {
+    transform: translateX(1100px) translateY(130%);
+  }
+}
+
+@keyframes plane-rotation {
+  15% {
+    transform: rotate(-5deg);
+  }
+  65% {
+    transform: rotate(-90deg);
+  }
+  66% {
+    transform: rotate(-180deg);
+  }
+  100% {
+    transform: rotate(-180deg);
+  }
+}
+
+.plane-movement { position: absolute ; left: 0; bottom: 0; width: 200px; height: 200px; z-index: 0; animation: plane-movement 3s linear forwards; }
+.plane { animation: plane-rotation 3s linear forwards; }
+
+.plane .plane-body { width: 200px; height: 100px; background-color: white; display: inline-block; position: absolute; top: 50px; border-radius: 100%; z-index: 2; border: black solid 2px; }
+.plane .plane-body-mask { width: 196px; height: 96px; background-color: white; display: inline-block; position: absolute; border-radius: 100%; z-index: 1; }
+.plane .tail { position: absolute; display: inline-block; width: 37px; height: 70px; background: white; border-top-right-radius: 100%; top: -20px; z-index: 1; border: black solid 2px; left: -2px; }
+.plane .window { position: absolute; display: inline-block; width: 40px; height: 20px; background: black; z-index: 3; }
+.plane .window.left { border-top-left-radius: 100%; left: 25px; top: 20px; }
+.plane .window.middle { left: 80px; top: 20px; }
+.plane .window.right { border-top-right-radius: 100%; right: 25px; top: 20px; }
+.plane .wing { background: white; border: black solid 2px; border-top-color: black; border-top-style: solid; border-top-width: 2px; display: inline-block; width: 50px; height: 70px; left: 75px; position: absolute; top: 106px; border-bottom-left-radius: 100%; border-bottom-right-radius: 100%; border-top: transparent; z-index: 4; }
+.plane .wing.up { transform: rotate(180deg); top: 20px; z-index: 1; }
+
+/* Smoke */
+
+@keyframes smoke {
+  0% { transform: scale(0.5) translateY(0px); opacity: 0.5; }
+  100% { transform: scale(8) translateY(-100px); opacity: 0; }
+}
+
+.smoke { width: 25px; height: 25px; display: inline-block; position: absolute; bottom: 20px; left: 1200px; background: rgb(80, 80, 80); z-index: 1000; border-radius: 100%; animation: smoke 2s linear infinite; opacity: 0; }
+.smoke.smoke0 { animation-delay: 3.25s; }
+.smoke.smoke1 { animation-delay: 3.75s; }
+.smoke.smoke2 { animation-delay: 4.25s; }
+.smoke.smoke3 { animation-delay: 4.75s; }
+.smoke.smoke4 { animation-delay: 5.25s; }
+
+/* Fire */
+
+@keyframes fire-triangle {
+  0% { transform: skewX(20deg); opacity: 0.75; }
+  50% { transform: skewX(-20deg); opacity: 0.75; }
+  100% { transform: skewX(20deg); opacity: 0.75; }
+}
+
+.fire { position: absolute; left: 1100px; bottom: 54px; }
+.fire-container { display: inline-block }
+.fire-container0 { transform: rotate(-20deg) translateY(-10px); }
+.fire-container1 { transform: rotate(-10deg) translateY(-10px); }
+.fire-container2 { transform: rotate(10deg) translateY(-10px); }
+.fire-container3 { transform: rotate(20deg) translateY(-10px); }
+
+.fire .triangle-outter { width: 0px; height: 0px; border-left: 20px solid transparent; border-right: 20px solid transparent; border-bottom: 40px solid red; left: 50%; top: 50%; z-index: 1000;  animation: fire-triangle 2s linear infinite; position: relative; display: inline-block; opacity: 0; }
+.fire .triangle-outter .triangle-inner { width: 0px; height: 0px; border-left: 11px solid transparent; border-right: 11px solid transparent; border-bottom: 30px solid orange; left: calc(50% + -11px); top: calc(50% + 10px); z-index: 1000; position: absolute; }
+
+.fire .triangle-outter.triangle0 { animation-delay: 3.25s; }
+.fire .triangle-outter.triangle1 { animation-delay: 3.65s; }
+.fire .triangle-outter.triangle2 { animation-delay: 3.85s; }
+.fire .triangle-outter.triangle3 { animation-delay: 4.25s; }

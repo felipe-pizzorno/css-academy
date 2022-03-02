@@ -51,7 +51,7 @@
 
   <div class="hero">
     <div class="content">
-      <a class="main-image" href="#">
+      <a class="main-image" href="javascript:;">
         <figure>
           <img src="./crossing.webp" alt="">
         </figure>
@@ -179,6 +179,53 @@
       </p>
     </div>
   </footer>
+  <div class="modal modal1">
+    <div class="modal-content card">
+      <a class="close-modal">X</a>
+      <div class="text">
+        <p> Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum Lorem iposum </p>
+      </div>
+    </div>
+  </div>
+  <div class="plane-movement">
+    <div class="plane">
+      <span class="wing up"></span>
+      <span class="plane-body">
+        <span class="tail"></span>
+        <span class="plane-body-mask"></span>
+        <span class="window left"></span>
+        <span class="window middle"></span>
+        <span class="window right"></span>
+      </span>
+      <span class="wing down"></span>
+    </div>
+  </div>
+  <span class="smoke smoke0"></span>
+  <span class="smoke smoke1"></span>
+  <span class="smoke smoke2"></span>
+  <span class="smoke smoke3"></span>
+  <div class="fire">
+    <div class="fire-container fire-container0">
+      <div class="triangle-outter triangle0">
+        <div class="triangle-inner"></div>
+      </div>
+    </div>
+    <div class="fire-container fire-container1">
+      <div class="triangle-outter triangle1">
+        <div class="triangle-inner"></div>
+      </div>
+    </div>
+    <div class="fire-container fire-container2">
+      <div class="triangle-outter triangle2">
+        <div class="triangle-inner"></div>
+      </div>
+    </div>
+    <div class="fire-container fire-container3">
+      <div class="triangle-outter triangle3">
+        <div class="triangle-inner"></div>
+      </div>
+    </div>
+  </div>
 </body>
 <script>
   $(document).ready(function () {
@@ -188,6 +235,24 @@
 
     $('.close-box').click(function () {
       $('.main-header').removeClass("show-menu");
+    })
+
+    $('.modal-content').click(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    })
+    $('.close-modal').click(function () {
+      $('.modal').removeClass("show-modal");
+      $('body').removeClass("overflow");
+    })
+    $('.modal').click(function () {
+      $('.modal').removeClass("show-modal");
+      $('body').removeClass("overflow");
+    })
+
+    $('.hero').click(function () {
+      $('.modal1').addClass("show-modal");
+      $('body').addClass("overflow");
     })
   })
 </script> 
